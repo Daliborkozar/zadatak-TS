@@ -1,0 +1,39 @@
+.navbar {
+  display: flex;
+  
+  margin: 0 auto;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
+
+  &__searchbox {
+    max-width: 420px;
+    width: 100%;
+    form {
+      input {
+        padding: 0.6rem;
+        border-radius: 5px;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+}
+
+
+.navbar-list {
+  display: flex;
+  
+  
+  &__item {
+    margin-left: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}
+
