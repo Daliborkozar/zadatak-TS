@@ -7,11 +7,11 @@ import axios from "axios";
 const SEARCH_RECIPE = "https://www.themealdb.com/api/json/v1/1/filter.php?i=";
 
 const CategoryPage = (props) => {
-  const { cat } = useParams();
-
   const [loading, setLoading] = useState(true);
   const [recipeList, setRecipeList] = useState([]);
   const [recommended, setRecommended] = useState({});
+  const [filterSearch, setFilterSearch] = useState([]);
+  const { cat } = useParams();
 
   useEffect(() => {
     const recipies = async () => {
@@ -20,9 +20,8 @@ const CategoryPage = (props) => {
       setRecommended(data.meals[Math.floor(Math.random() * data.meals.length)]);
       setLoading(false);
     };
-
     recipies();
-  }, [cat]);
+  }, []);
 
   const { strMeal, strMealThumb, idMeal } = recommended;
 
@@ -31,17 +30,15 @@ const CategoryPage = (props) => {
   ) : (
     <Loader />
   );
-
-    const handleSearch = (e) => {
-       
-
-    }
+  //filter logic
+  //   const handleSearch = (e, recipeList) => {};
+  console.log(recipeList);
 
   let mealList = null;
 
   mealList = loading ? (
     <Loader />
-  ) : (
+  ) : mealList = (
     recipeList.map(({ strMeal, strMealThumb, idMeal }) => (
       <Card
         route="meal"
@@ -62,7 +59,7 @@ const CategoryPage = (props) => {
           {recom}
         </div>
         <div>
-          <input type="text" placeholder="Search..."  onChange={handleSearch}/>
+          <input type="text" placeholder="Search..." />
         </div>
       </div>
       <div className="meal-list">{mealList}</div>
