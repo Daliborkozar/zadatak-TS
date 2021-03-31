@@ -37,7 +37,9 @@ const Categories = () => {
   return (
     <div className="container">
       <Header />
-      <div className="recipe-category">{loadHndler}</div>
+      <div className="recipe-category">
+        {loadHndler}
+      </div>
     </div>
   );
 };

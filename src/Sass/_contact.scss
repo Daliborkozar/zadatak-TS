@@ -1,17 +1,17 @@
 .contact {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-   
-    h2 {
-        
-        display: inline-block;
-        font-size: 2rem;
-        font-weight: 700;
-        padding: 1rem 0;
-        border-bottom: 4px solid black;
-        margin-bottom: 1rem;
-    }
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 3rem 0;
+
+  h2 {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem 0;
+    border-bottom: 4px solid black;
+    margin-bottom: 1rem;
+  }
 }
 
 .contact-form {
@@ -29,7 +29,9 @@
     margin-bottom: 16px;
   }
 
-  input[type=textarea] {
-      height: 200px;
+  textarea {
+    width: 100%;
+    height: 200px;  
+    padding:10px
   }
 }

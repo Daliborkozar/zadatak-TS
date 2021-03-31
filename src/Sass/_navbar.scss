@@ -3,8 +3,9 @@
   
   margin: 0 auto;
   justify-content: space-between;
-  height: 4rem;
+  height: 5rem;
   align-items: center;
+  padding: 0 1.5rem;
 
   &__searchbox {
     max-width: 420px;
@@ -27,13 +28,14 @@
 
 .navbar-list {
   display: flex;
+
   
   
   &__item {
     margin-left: 1rem;
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
-    font-weight: 400;
+    font-weight: 700;
   }
 }
 

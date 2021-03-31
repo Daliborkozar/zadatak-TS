@@ -1,7 +1,8 @@
 .aboutus-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  justify-content: space-between;
 }
 
 .aboutus-image {
@@ -11,25 +12,23 @@
 }
 
 .aboutus-content {
-    
-    max-width: 400px;
-    line-height: 1.5;
-    font-family: 'Roboto', sans-serif;
-    flex:1;
+  max-width: 400px;
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  flex: 1;
+  padding: 1rem;
 
-    h2{
-        display: inline-block;
-        font-size: 2rem;
-        font-weight: 700;
-        padding: 1rem 0;
-        border-bottom: 4px solid black;
-        margin-bottom: 1rem;
-        
-    }
+  h2 {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem 0;
+    border-bottom: 4px solid black;
+    margin-bottom: 1rem;
+  }
 
-    p {
-        font-size: 1.2rem;
-        font-weight: 400;
-        
-    }
+  p {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
 }

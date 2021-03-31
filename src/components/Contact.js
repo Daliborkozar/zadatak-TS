@@ -8,11 +8,11 @@ const Contact = () => {
       </div>
 
       <form className="contact-form">
-        <input type="text"  placeholder='First name'/>
-        <input type="text" placeholder='Last name'/>
-        <input type="text" placeholder='Email'/>
-        <input type="textarea" placeholder='Message' />
-        <button>Send</button>
+        <input type="text" placeholder="First name" required/>
+        <input type="text" placeholder="Last name" required/>
+        <input type="text" placeholder="Email" required/>
+        <textarea placeholder="Message" required/>
+        <button type='submit'>Send</button>
       </form>
     </div>
   );
