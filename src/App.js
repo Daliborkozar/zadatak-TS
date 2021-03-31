@@ -2,20 +2,24 @@ import "./App.scss";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./containers/HomePage";
+import CategoryPage from "./containers/CategoryPage";
+import SingleMealPage from "./containers/SingleMealPage";
+import { FaSignInAlt } from "react-icons/fa";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Layout>
         <main>
-          
-            <Route></Route>
-            <Route></Route>
-            <Route></Route>
-            <Route path="/" exact>
-              <HomePage/>
-            </Route>
-         
+          <Route path="/meal/:id">
+            <SingleMealPage />
+          </Route>
+          <Route path="/category/:cat">
+            <CategoryPage />
+          </Route>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
         </main>
       </Layout>
     </BrowserRouter>

@@ -26,11 +26,8 @@ const Categories = () => {
     <Loader />
   ) : (
     category.map(({idCategory,strCategoryThumb,strCategory}) => (
-        <Card img={strCategoryThumb} id={idCategory} name={strCategory}/>
-      // <div className="card" key={idCategory}>
-      //   <img src={strCategoryThumb} alt={strCategory} />
-      //   <h3>{strCategory}</h3>
-      // </div>
+        <Card route='category' key={idCategory} img={strCategoryThumb} name={strCategory}/>
+     
     ))
   );
 

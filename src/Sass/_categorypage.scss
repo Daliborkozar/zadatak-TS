@@ -1,0 +1,13 @@
+.recommendation-header {
+  
+    
+}
+
+.meal-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 3rem;
+    align-content: center;
+    gap: 1rem;
+}
