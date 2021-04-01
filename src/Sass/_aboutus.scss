@@ -3,12 +3,21 @@
   flex-wrap: wrap;
   padding: 2rem 0;
   justify-content: space-between;
+  align-items: center;
+  @media only screen and (max-width: 800px){
+    flex-direction: column;
+  }
 }
 
 .aboutus-image {
+    
     width: 100%;
     max-width: 500px;
-    flex: 1;
+    @media only screen and (max-width: 800px){
+      max-width: 95vw;
+    }
+    
+    
 }
 
 .aboutus-content {
@@ -17,6 +26,10 @@
   font-family: "Roboto", sans-serif;
   flex: 1;
   padding: 1rem;
+  @media only screen and (max-width: 800px){
+    max-width: 95vw;
+    margin-bottom: 2rem;
+  }
 
   h2 {
     display: inline-block;

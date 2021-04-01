@@ -35,8 +35,6 @@
     font-size: 1.2rem;
     font-weight: 700;
     text-decoration: none;
-    
-    
     }
   
 }
@@ -47,4 +45,20 @@ a{
   &:hover {
     cursor: pointer;
   }
+}
+
+
+.navbar-form {
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    
+    top:10px;
+    left: 227px;
+    
+    
+  }
+  
+  
 }

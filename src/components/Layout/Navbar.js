@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaRegUserCircle,FaSearch } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -14,12 +14,13 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="navbar__searchbox">
-        <form>
+        <form className='navbar-form'>
           <input
             type="text"
             placeholder="Search recipe.."
             onSubmit={submitHandler}
           />
+          <span className='navbar-form__icon'><FaSearch size={20}/></span>
         </form>
       </div>
       <div className="navbar__right">

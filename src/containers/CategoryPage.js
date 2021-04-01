@@ -38,7 +38,9 @@ const CategoryPage = (props) => {
   const searchHandler = (e) => {
     setSearch(e.target.value)
   }
- 
+  
+
+  //
 
   let mealList = null;
 

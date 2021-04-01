@@ -6,7 +6,7 @@ const Aboutus = () => {
     <div className="aboutus-wrapper">
       <div className="aboutus-content">
         <div>
-        <h2>About us</h2>
+          <h2>About us</h2>
         </div>
         <p>
           Contrary to popular belief, Lorem Ipsum is not simply random text. It
@@ -16,7 +16,9 @@ const Aboutus = () => {
           Latin words, consectetur, from a Lorem Ipsum passage.
         </p>
       </div>
-      <img className="aboutus-image" src={aboutimg} alt="aboutus" />
+      <div>
+        <img className="aboutus-image" src={aboutimg} alt="aboutus" />
+      </div>
     </div>
   );
 };
