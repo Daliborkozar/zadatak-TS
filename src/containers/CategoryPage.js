@@ -10,7 +10,6 @@ const CategoryPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [recipeList, setRecipeList] = useState([]);
   const [recommended, setRecommended] = useState({});
-  const [filterSearch, setFilterSearch] = useState([]);
   const { cat } = useParams();
 
   useEffect(() => {
@@ -30,9 +29,7 @@ const CategoryPage = (props) => {
   ) : (
     <Loader />
   );
-  //filter logic
-  //   const handleSearch = (e, recipeList) => {};
-  console.log(recipeList);
+ 
 
   let mealList = null;
 

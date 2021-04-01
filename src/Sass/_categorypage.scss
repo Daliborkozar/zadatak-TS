@@ -10,4 +10,8 @@
     margin: 3rem;
     align-content: center;
     gap: 1rem;
+
+    &__list {
+        display: flex;
+    }
 }

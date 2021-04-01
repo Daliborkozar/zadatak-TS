@@ -1,0 +1,42 @@
+.single-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.single-header {
+    display: flex;
+
+    .single-img {
+        max-height: 400px;
+        width: 100%;
+    }
+
+
+    &__right {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.ingredient-list {
+    display: flex;
+    list-style: none;
+
+    &__wrapper {
+        padding: 1rem 2rem;
+
+        ol {
+            list-style: none;
+        }
+    }
+}
+
+.single-meals {
+    display: flex;
+    flex-direction: column;
+
+    &__list {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

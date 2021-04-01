@@ -4,7 +4,7 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./containers/HomePage";
 import CategoryPage from "./containers/CategoryPage";
 import SingleMealPage from "./containers/SingleMealPage";
-import { FaSignInAlt } from "react-icons/fa";
+
 
 const App = () => {
   return (
