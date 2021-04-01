@@ -1,6 +1,6 @@
 .header-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   padding: 2rem 0;
   justify-content: space-between;
@@ -8,8 +8,8 @@
 
 .header-image {
   width: 100%;
-  max-width: 500px;
-  flex: 1;
+  max-width: 400px;
+  
 }
 
 .header-content {
@@ -17,7 +17,7 @@
   line-height: 1.5;
   font-family: "Roboto", sans-serif;
   flex: 1;
-  margin-left: 5rem;
+  
   padding: 1rem;
 
   h1 {
@@ -26,7 +26,24 @@
   }
 
   p {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 400;
+    margin-bottom: 2rem;
+  }
+}
+
+.btn-category {
+  background: var(--light);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &:hover {
+    background: var(--dark);
   }
 }

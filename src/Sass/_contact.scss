@@ -35,3 +35,23 @@
     padding:10px
   }
 }
+
+.btn {
+  background: var(--light);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  outline: none;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 10px;
+
+  &:hover {
+    background: var(--dark);
+  }
+}
+
+.btn-container {
+  margin-top: 2rem;
+}

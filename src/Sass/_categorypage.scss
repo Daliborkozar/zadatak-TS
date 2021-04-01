@@ -1,6 +1,37 @@
 .recommendation-header {
-  
+  display: flex;
+ justify-content: space-between;
     
+}
+
+.recommendation-wrapper {
+    display: flex;
+    flex-direction: column;
+    
+    h1 {
+        align-self: flex-start;
+        margin-bottom: 2rem;
+        font-size: 3rem;
+    }
+    
+}
+
+.form-wrapper {
+    position: relative;
+    align-self: flex-end;
+
+    input {
+        padding: 0.4rem;
+        border-radius: 5px;
+        width: auto;
+        
+    }
+}
+
+.search-icon {
+    position: absolute;
+    right: 8px;
+    top: 8px;
 }
 
 .meal-list {
@@ -15,3 +46,4 @@
         display: flex;
     }
 }
+

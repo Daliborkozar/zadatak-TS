@@ -13,22 +13,22 @@ const SingleMealPage = () => {
 
   console.log(meal)
 
-  const similar = (data) => {
-    data.sort(() => Math.random() - Math.random())
-      .slice(0, 3)
-  }
+  // const similar = (data) => {
+  //   data.sort(() => Math.random() - Math.random())
+  //     .slice(0, 3)
+  // }
 
   useEffect(() => {
-    const single = async () => {
+    const single = async() => {
       const { data } = await axios.get(SINGLE_MEAL + id);
         console.log(meal)
       setMeal(data.meals[0]);
     };
 
-    const meals = async () => {
-      const { data } = await axios.get(SAME_CAT_MEALS + `${meal.strCategory}`);
+    const meals = async() => {
+      const { data } = await axios.get(SAME_CAT_MEALS + `${meal.strCategory}`)
       console.log(data.meals)
-      setSimilarList(similar(data.meals));
+      // setSimilarList(similar(data.meals));
     };
 
     single();
@@ -58,14 +58,16 @@ const SingleMealPage = () => {
     <div>
       <div className="single-container">
         <div className="single-header">
-          <img
-            className="single-img"
-            src={meal.strMealThumb}
-            alt={meal.strMeal}
-          />
+          <div className='single-img-wrapper'>
+            <img
+              className="single-img"
+              src={meal.strMealThumb}
+              alt={meal.strMeal}
+            />
+          </div>
           <div className="single-header__right">
-            <h4>Category: {meal.strCategory}</h4>
-            <h4>Country: {meal.strArea}</h4>
+            <h4 ><strong>Category:</strong> {meal.strCategory}</h4>
+            <h4 ><strong>Country:</strong> {meal.strArea}</h4>
             <p>{meal.strInstructions}</p>
           </div>
         </div>

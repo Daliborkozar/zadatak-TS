@@ -12,9 +12,9 @@
     width: 100%;
     form {
       input {
-        padding: 0.6rem;
+        padding: 0.4rem;
         border-radius: 5px;
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
     }
   }
@@ -29,13 +29,22 @@
 .navbar-list {
   display: flex;
 
-  
-  
   &__item {
     margin-left: 1rem;
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
-  }
+    text-decoration: none;
+    
+    
+    }
+  
 }
 
+a{
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

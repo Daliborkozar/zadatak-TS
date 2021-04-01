@@ -1,42 +1,71 @@
 .single-container {
-    display: flex;
-    flex-direction: column;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (max-width: 756px) {
+    margin-top: 2rem;
+  }
 }
 
 .single-header {
+  display: flex;
+  @media only screen and (max-width: 756px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+
+  .single-img {
+    width: 100%;
+    max-width: 400px;
+
+    @media only screen and (max-width: 756px) {
+      max-width: 100%;
+      text-align: center;
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+
+  &__right {
     display: flex;
-
-    .single-img {
-        max-height: 400px;
-        width: 100%;
+    flex-direction: column;
+    padding: 0 2rem;
+    width: 60%;
+    @media only screen and (max-width: 756px) {
+      width: 95%;
+      justify-content: center;
     }
 
-
-    &__right {
-        display: flex;
-        flex-direction: column;
+    h4 {
+      font-size: 1.2rem;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      margin-bottom: 1rem;
     }
+  }
 }
 
 .ingredient-list {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
+  margin: 4rem 0;
 
-    &__wrapper {
-        padding: 1rem 2rem;
+  &__wrapper {
+    padding: 1rem 1rem;
 
-        ol {
-            list-style: none;
-        }
+    ol {
+      list-style: none;
     }
+  }
 }
 
 .single-meals {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    &__list {
-        display: flex;
-        justify-content: space-evenly;
-    }
+  &__list {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }

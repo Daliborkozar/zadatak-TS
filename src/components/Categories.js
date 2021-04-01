@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "./Header";
 import Loader from "./UI/Loader/Loader";
-import Card from '../components/UI/Card/Card'
+import Card from "../components/UI/Card/Card";
 
 const CATEGORIES = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
@@ -22,21 +22,25 @@ const Categories = () => {
 
   let loadHndler = null;
 
-  loadHndler = loading ? (
-    <Loader />
-  ) : (
-    category.map(({idCategory,strCategoryThumb,strCategory}) => (
-        <Card route='category' key={idCategory} img={strCategoryThumb} name={strCategory}/>
-     
-    ))
-  );
+  if (loading) {
+    loadHndler = <Loader />;
+  } else {
+    loadHndler = category.map(
+      ({ idCategory, strCategoryThumb, strCategory }) => (
+        <Card
+          route="category"
+          key={idCategory}
+          img={strCategoryThumb}
+          name={strCategory}
+        />
+      )
+    );
+  }
 
   return (
     <div className="container">
       <Header />
-      <div className="recipe-category">
-        {loadHndler}
-      </div>
+      <div className="recipe-category">{loadHndler}</div>
     </div>
   );
 };

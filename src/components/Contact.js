@@ -57,7 +57,7 @@ const Contact = () => {
           onChange={inputHandler}
         />
         <div className="btn-container">
-          <button type="submit">Send</button>
+          <button className='btn' type="submit">Send</button>
         </div>
       </form>
     </div>
