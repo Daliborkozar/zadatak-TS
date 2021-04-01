@@ -4,22 +4,27 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./containers/HomePage";
 import CategoryPage from "./containers/CategoryPage";
 import SingleMealPage from "./containers/SingleMealPage";
-
+import SearchPage from "./containers/SearchPage";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Layout>
         <main>
-          <Route path="/meal/:id">
-            <SingleMealPage />
-          </Route>
-          <Route path="/category/:cat">
-            <CategoryPage />
-          </Route>
-          <Route path="/"exact>
-            <HomePage />
-          </Route>
+          <Switch>
+            <Route path="/meal/:id">
+              <SingleMealPage />
+            </Route>
+            <Route path="/category/:cat">
+              <CategoryPage />
+            </Route>
+            <Route path="/search/:recpie">
+              <SearchPage />
+            </Route>
+            <Route path="/" exact>
+              <HomePage />
+            </Route>
+          </Switch>
         </main>
       </Layout>
     </BrowserRouter>

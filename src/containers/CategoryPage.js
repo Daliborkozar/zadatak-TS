@@ -58,9 +58,6 @@ const CategoryPage = (props) => {
     ))
   );
 
-  
-
-
   return (
     <div>
       <div className="recommendation-header">

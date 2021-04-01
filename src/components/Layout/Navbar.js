@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaRegUserCircle,FaSearch } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -6,19 +6,27 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const history = useHistory();
   const location = useLocation();
+  const [search, setSearch] = useState('')
 
   const submitHandler = (e) => {
     e.preventDefault();
+    history.push(`/search/${search}`)
+    setSearch('')
   };
+
+  const onSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
 
   return (
     <header className="navbar">
       <div className="navbar__searchbox">
-        <form className='navbar-form'>
+        <form className='navbar-form' onSubmit={submitHandler}>
           <input
             type="text"
             placeholder="Search recipe.."
-            onSubmit={submitHandler}
+            value={search}
+            onChange={onSearchChange}
           />
           <span className='navbar-form__icon'><FaSearch size={20}/></span>
         </form>

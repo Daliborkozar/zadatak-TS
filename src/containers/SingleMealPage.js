@@ -25,10 +25,11 @@ const SingleMealPage = () => {
       setMeal(data.meals[0]);
     };
 
+    //????? APi working sometimes....
     const meals = async() => {
       const { data } = await axios.get(SAME_CAT_MEALS + `${meal.strCategory}`)
       console.log(data.meals)
-      // setSimilarList(similar(data.meals));
+      setSimilarList(data.meals);
     };
 
     single();
@@ -53,6 +54,7 @@ const SingleMealPage = () => {
       measures.push(meas);
     }
   }
+
 
   return (
     <div>
@@ -92,7 +94,7 @@ const SingleMealPage = () => {
         <div className="similar-meals">
           <h2>Similar meals</h2>
           <div className="similar-meal__list">
-            {similarList ?
+            {/* {similarList ?
               similarList.map(({ strMeal, strMealThumb, idMeal }) => (
                   <Card
                     route="meal"
@@ -101,7 +103,8 @@ const SingleMealPage = () => {
                     id={idMeal}
                   />
                 )) : "error"
-              }
+              } */}
+              
           </div>
         </div>
       </div>
