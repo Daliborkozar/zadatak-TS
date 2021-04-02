@@ -11,15 +11,10 @@ const CATEGORY_LIST = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
 const SearchPage = () => {
   const [random, setRandom] = useState({});
-  const [loading, setLoading] = useState(true);
   const [searchList, setSearchList] = useState([]);
   const [category, setCategory] = useState([]);
   const { recpie } = useParams();
-  const [selection, setSelection] = useState()
-
-  console.log(searchList);
-  console.log(category)
-  
+  const [selection, setSelection] = useState();
 
   useEffect(() => {
     const random = async () => {
@@ -41,23 +36,22 @@ const SearchPage = () => {
     };
 
     cat();
-
   }, []);
 
-  let randomRec = null;
-
-  randomRec = (
-    <Card
-      route={"meal"}
-      name={random.strMeal}
-      img={random.strMealThumb}
-      id={random.idMeal}
-    />
-  );
+  const randomRec = () => {
+    return (
+      <Card
+        route={"meal"}
+        name={random.strMeal}
+        img={random.strMealThumb}
+        id={random.idMeal}
+      />
+    );
+  };
 
   const onSelectionHandler = (e) => {
-    setSelection(e.target.value)
-  }
+    setSelection(e.target.value);
+  };
 
   return (
     <div>
@@ -65,21 +59,20 @@ const SearchPage = () => {
         <div className="recomendation-wrapper">
           <h1>Search </h1>
           <h3>Our recommendation</h3>
-          {randomRec}
+          {randomRec()}
           <div>
-          <p>Category: {random.strCategory}</p>
-          <p>Country: {random.strArea} </p>
+            <p>Category: {random.strCategory}</p>
+            <p>Country: {random.strArea} </p>
           </div>
         </div>
         <div className="form-wrapper">
-          <select value={selection} onChange={onSelectionHandler} >
-           <option selected value="category">Category</option>
-            {category.map((item => (
-             <option value={item.strCategory}>{item.strCategory}</option> 
-            )))}
+          <select value={selection} onChange={onSelectionHandler}>
+            <option defaultValue="category">Category</option>
+            {category.map((item) => (
+              <option value={item.strCategory}>{item.strCategory}</option>
+            ))}
           </select>
         </div>
-      
       </div>
       <div className="meal-list"></div>
     </div>

@@ -10,15 +10,6 @@ const SingleMealPage = () => {
   const { id } = useParams();
   const [meal, setMeal] = useState({});
   const [similarList, setSimilarList] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  console.log(meal);
-  console.log(similarList)
-
-  // const similar = (data) => {
-  //   data.sort(() => Math.random() - Math.random())
-  //     .slice(0, 3)
-  // }
 
   useEffect(() => {
     const meals = async () => {
@@ -26,19 +17,14 @@ const SingleMealPage = () => {
       setSimilarList(data.meals);
     };
     meals();
-    
+
     const single = async () => {
       const { data } = await axios.get(SINGLE_MEAL + id);
       setMeal(data.meals[0]);
     };
 
-    
-    
     single();
-    
   }, []);
-
-  
 
   // prvo resenje
   // let ingredients = [];
@@ -57,32 +43,23 @@ const SingleMealPage = () => {
   //   }
   // }
 
-
   //Resenje br2 nije najsrecnije resenje TODO - efikasnije resenje
   const recipeData = (list, word) => {
     const result = Object.entries(list).filter(
       ([key, value]) => value !== "" && key.includes(word)
     );
-    
-    return result.map((item,i) => (<li key={i}>{item[1]}</li>)
-    );
+
+    return result.map((item, i) => <li key={i}>{item[1]}</li>);
   };
 
-  
-  // const similar = (similarList) => {
-  //   const randData= similarList.sort(() => Math.random() - Math.random())
-  //     .slice(0, 3)
-  //     return (
-  //     randData.map(({ strMeal, strMealThumb, idMeal }) => (
-  //       <Card
-  //         route="meal"
-  //         name={strMeal}
-  //         img={strMealThumb}
-  //         id={idMeal}
-  //       />
-  //      ))
-  //      )
-  // }
+  const similar = () => {
+    return similarList
+      .sort(() => Math.random() - Math.random())
+      .slice(0, 3)
+      .map(({ strMeal, strMealThumb, idMeal }) => (
+        <Card route="meal" name={strMeal} img={strMealThumb} id={idMeal} />
+      ));
+  };
 
   return (
     <div>
@@ -112,25 +89,13 @@ const SingleMealPage = () => {
           </div>
           <div className="ingredient-list__wrapper">
             <h4>Measures</h4>
-            <ol>
-              {recipeData(meal,"strMeasure")}
-            </ol>
+            <ol>{recipeData(meal, "strMeasure")}</ol>
           </div>
         </div>
         <div className="similar-meals">
           <h2>Similar meals</h2>
           <div className="similar-meal__list">
-            {similarList ?
-              similarList.map(({ strMeal, strMealThumb, idMeal }) => (
-                  <Card
-                    route="meal"
-                    name={strMeal}
-                    img={strMealThumb}
-                    id={idMeal}
-                  />
-                )) : "error"
-              }
-            {/* {similar(similarList)} */}
+            {similarList === !null ? similar() : "API NOT WORKING ERROR"}
           </div>
         </div>
       </div>
