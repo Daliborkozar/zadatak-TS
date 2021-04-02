@@ -1,6 +1,7 @@
 import React from "react";
 import aboutimg from "../assets/aboutus.jpg";
 
+
 const Aboutus = () => {
   return (
     <div className="aboutus-wrapper">

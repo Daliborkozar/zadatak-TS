@@ -60,7 +60,7 @@ a {
 .hamburger {
   display: none;
   @media only screen and (max-width: 800px) {
-    display: inline;
+    display: none;
   }
 }
 
@@ -68,11 +68,11 @@ a {
   position: relative;
   display: inline-block;
   
-  &:hover {
-    .tooltip-form {
-      visibility: visible;
-    }
-  }
+  // &:hover {
+  //   .tooltip-form {
+  //     visibility: visible;
+  //   }
+  // }
   .tooltip-form {
     display: flex;
     flex-direction: column;

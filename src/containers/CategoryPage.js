@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import Loader from "../components/UI/Loader/Loader";
 import Card from "../components/UI/Card/Card";
 import axios from "axios";
-import {FaSearch} from 'react-icons/fa'
+import { FaSearch } from "react-icons/fa";
 
 const SEARCH_RECIPE = "https://www.themealdb.com/api/json/v1/1/filter.php?i=";
 
@@ -12,15 +12,15 @@ const CategoryPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [recipeList, setRecipeList] = useState([]);
   const [recommended, setRecommended] = useState({});
-  
-  const [search, setSearch] = useState('')
+
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const recipies = async () => {
       const { data } = await axios.get(SEARCH_RECIPE + cat);
       setRecipeList(data.meals);
-      console.log(data.meals)
-      setRecommended(data.meals[Math.floor(Math.random() * data.meals.length)])
+      console.log(data.meals);
+      setRecommended(data.meals[Math.floor(Math.random() * data.meals.length)]);
 
       setLoading(false);
     };
@@ -36,9 +36,8 @@ const CategoryPage = (props) => {
   );
 
   const searchHandler = (e) => {
-    setSearch(e.target.value)
-  }
-  
+    setSearch(e.target.value);
+  };
 
   //
 
@@ -46,8 +45,8 @@ const CategoryPage = (props) => {
 
   loading ? (
     <Loader />
-  ) : mealList = (
-    recipeList.map(({ strMeal, strMealThumb, idMeal }) => (
+  ) : (
+    (mealList = recipeList.map(({ strMeal, strMealThumb, idMeal }) => (
       <Card
         route="meal"
         key={idMeal}
@@ -55,25 +54,27 @@ const CategoryPage = (props) => {
         id={idMeal}
         name={strMeal}
       />
-    ))
+    )))
   );
 
   return (
     <div>
-      <div className="recommendation-header">
-      
-        <div className='recomendation-wrapper'>
-        <h1>{cat}</h1>
+      <div className="recommendation-container">
+        <div className="recomendation-wrapper">
+          <h1>{cat}</h1>
           <h3>Our recommendation</h3>
           {recom}
         </div>
-        <div className='form-wrapper'>
+        <div className="form-wrapper">
           <input
-          type="text" placeholder="Search..."
-          value={search}
-          onChange={searchHandler}
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={searchHandler}
           />
-          <span className='search-icon'><FaSearch/></span>
+          <span className="search-icon">
+            <FaSearch />
+          </span>
         </div>
       </div>
       <div className="meal-list">{mealList}</div>
