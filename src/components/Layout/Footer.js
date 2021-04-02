@@ -9,8 +9,9 @@ const Footer = () => {
       <div className='footer__container'>
         <img className='footer__image' src={logo} alt='footerimage' />
         <div>
-          <FaFacebookF size={25}/>
-          <FaInstagram size={25}/>
+        <a href='http://www.facebook.com' rel="noreferrer" target="_blank"><FaFacebookF size={25}/></a>
+        <a href='http://www.instagram.com' rel="noreferrer" target="_blank"><FaInstagram size={25}/></a>
+          
         </div>
       </div>
       <p className='footer-text'>Challenge by <a href='https://www.thinksmart.rs/'>Think Smart</a> Coded by Dalibor Kozar {year} </p>

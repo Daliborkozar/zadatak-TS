@@ -44,7 +44,7 @@ const CategoryPage = (props) => {
 
   let mealList = null;
 
-  mealList = loading ? (
+  loading ? (
     <Loader />
   ) : mealList = (
     recipeList.map(({ strMeal, strMealThumb, idMeal }) => (
@@ -64,7 +64,7 @@ const CategoryPage = (props) => {
       
         <div className='recomendation-wrapper'>
         <h1>{cat}</h1>
-          <p>Our recommendation</p>
+          <h3>Our recommendation</h3>
           {recom}
         </div>
         <div className='form-wrapper'>

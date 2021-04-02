@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaRegUserCircle,FaSearch } from "react-icons/fa";
+import { FaRegUserCircle,FaSearch, FaBars } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Navbar = () => {
     history.push(`/search/${search}`)
     setSearch('')
   };
-
+  
   const onSearchChange = (e) => {
     setSearch(e.target.value)
   }
@@ -32,7 +32,17 @@ const Navbar = () => {
         </form>
       </div>
       <div className="navbar__right">
+        <div className='hamburger'>
+          <FaBars />
+        </div>
+        <div className='tooltip'>
+          <form className='tooltip-form' >
+            <input className='tooltip-input' type='text' />
+            <input className='tooltip-input' type='text'/>
+            <button className='tooltip-button'>Login</button>
+          </form>
         <FaRegUserCircle size={40} />
+        </div>
         <ul className="navbar-list">
           {location.pathname === "/" ? null : (
             <Link to="/">

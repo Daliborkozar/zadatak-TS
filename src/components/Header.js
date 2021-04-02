@@ -1,6 +1,7 @@
 import React from "react";
 import Headerpic from "../assets/headerpic.jpg";
 
+
 const Header = () => {
   return (
     <div className="header-wrapper">

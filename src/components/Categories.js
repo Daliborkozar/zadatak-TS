@@ -9,6 +9,7 @@ const CATEGORIES = "https://www.themealdb.com/api/json/v1/1/categories.php";
 const Categories = () => {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const recipeCategory = async () => {
@@ -22,9 +23,9 @@ const Categories = () => {
 
   let loadHndler = null;
 
-  if (loading) {
-    loadHndler = <Loader />;
-  } else {
+  loading ? 
+  loadHndler = <Loader /> 
+  :
     loadHndler = category.map(
       ({ idCategory, strCategoryThumb, strCategory }) => (
         <Card
@@ -35,7 +36,7 @@ const Categories = () => {
         />
       )
     );
-  }
+  
 
   return (
     <div className="container">
