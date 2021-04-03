@@ -84,7 +84,7 @@ const SearchPage = () => {
         <div className="form-wrapper">
           <select value={selection} onChange={onSelectionHandler}>
             <option value="category">Category</option>
-            {category.map((item,i) => (
+            {category.map((item, i) => (
               <option key={i} value={item.strCategory}>
                 {item.strCategory}
               </option>

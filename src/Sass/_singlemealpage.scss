@@ -13,7 +13,6 @@
     flex-direction: column;
     justify-content: center;
   }
-  
 
   .single-img {
     width: 100%;
@@ -72,8 +71,7 @@
 
 .similar-meal {
   @media only screen and (max-width: 756px) {
-  padding: 2rem 1rem;
-  
+    padding: 2rem 1rem;
   }
   &__list {
     display: flex;

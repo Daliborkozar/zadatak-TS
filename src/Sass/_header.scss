@@ -3,19 +3,18 @@
   align-items: center;
   padding: 3rem 0;
   justify-content: space-between;
-    @media only screen and (max-width: 800px){
-      flex-direction: column;
-    }
+  @media only screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 }
 
 .header-image {
   width: 100%;
   max-width: 400px;
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 800px) {
     max-width: 95vw;
     order: 1;
   }
-  
 }
 
 .header-content {
@@ -24,7 +23,7 @@
   font-family: "Roboto", sans-serif;
   flex: 1;
   padding: 1rem;
-  @media only screen and (max-width: 800px){
+  @media only screen and (max-width: 800px) {
     max-width: 95vw;
     order: 2;
   }

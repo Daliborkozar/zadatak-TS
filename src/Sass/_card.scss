@@ -1,25 +1,21 @@
 .card {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem 1rem;
-    justify-content: space-evenly;
-    cursor: pointer;
-    width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem;
+  justify-content: space-evenly;
+  cursor: pointer;
+  width: 250px;
 
-    &:hover {
-        opacity: 0.5;
-    }
+  &:hover {
+    opacity: 0.5;
+  }
 
-    &__img {
-        width: 200px;
-        max-width: 100%;
+  &__img {
+    width: 200px;
+    max-width: 100%;
+  }
 
-        
-    }
-
-    &__name {
-        text-align: center;
-    }
-
-
+  &__name {
+    text-align: center;
+  }
 }

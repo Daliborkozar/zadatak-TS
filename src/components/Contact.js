@@ -22,7 +22,7 @@ const Contact = () => {
     e.preventDefault();
 
     setUserMessage([...userMessage, { firstname, lastname, email, message }]);
-    setSuccessMsg(true)
+    setSuccessMsg(true);
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -38,13 +38,12 @@ const Contact = () => {
   }, []);
 
   useEffect(() => {
-
     setTimeout(() => {
       setSuccessMsg(false);
     }, 2000);
 
     localStorage.setItem("data", JSON.stringify(userMessage));
-  },[userMessage]);
+  }, [userMessage]);
 
   return (
     <div className="contact">
@@ -87,11 +86,9 @@ const Contact = () => {
           <button className="btn" type="submit">
             Send
           </button>
-          
         </div>
         <div>
           <p>{successMsg ? "Thanks for being awesome! " : null}</p>
-        
         </div>
       </form>
     </div>

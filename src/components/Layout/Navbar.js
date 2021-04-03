@@ -104,7 +104,10 @@ const Navbar = () => {
           {menuShow ? <FaTimes size={30} /> : <FaBars size={30} />}
         </span>
         <div className={`navbar-wrapper ${menuShow ? "active" : null}`}>
-          <ul className="navbar-list">
+          <ul
+            className="navbar-list"
+            onClick={() => setMenuShow((prev) => !prev)}
+          >
             {location.pathname === "/" ? null : (
               <Link to="/">
                 <li className="navbar-list__item">Home</li>

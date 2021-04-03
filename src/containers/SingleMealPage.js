@@ -8,16 +8,8 @@ const SAME_CAT_MEALS = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
 
 const SingleMealPage = (props) => {
   const params = useParams();
-  const [meal, setMeal] = useState({'strCategory' : 'Dessert'});
+  const [meal, setMeal] = useState({ strCategory: "Dessert" });
   const [similarList, setSimilarList] = useState([]);
-  const location = useLocation()
-  const history = useHistory()
-
-  console.log(location)
-  console.log(history)
-
-  console.log(params);
-  console.log(meal.strCategory);
 
   useEffect(() => {
     const single = async () => {
@@ -30,13 +22,9 @@ const SingleMealPage = (props) => {
     const meals = async () => {
       const { data } = await axios.get(SAME_CAT_MEALS + `${meal.strCategory}`);
       setSimilarList(data.meals);
-      
     };
     meals();
-    
   }, [meal.strCategory, params.id]);
-
-
 
   // prvo resenje
   // let ingredients = [];
@@ -65,19 +53,18 @@ const SingleMealPage = (props) => {
   };
 
   const similar = () => {
-    
-      return similarList
-        .sort(() => Math.random() - Math.random())
-        .slice(0, 3)
-        .map(({ strMeal, strMealThumb, idMeal }) => (
-          <Card
-            key={idMeal}
-            route="meal"
-            name={strMeal}
-            img={strMealThumb}
-            id={idMeal}
-          />
-        ));
+    return similarList
+      .sort(() => Math.random() - Math.random())
+      .slice(0, 3)
+      .map(({ strMeal, strMealThumb, idMeal }) => (
+        <Card
+          key={idMeal}
+          route="meal"
+          name={strMeal}
+          img={strMealThumb}
+          id={idMeal}
+        />
+      ));
   };
 
   return (

@@ -1,15 +1,12 @@
 import React from "react";
 import aboutimg from "../assets/aboutus.jpg";
 
-
 const Aboutus = () => {
- 
-
   return (
     <div className="aboutus-wrapper">
       <div className="aboutus-content">
-        <div >
-          <h2 >About us</h2>
+        <div>
+          <h2>About us</h2>
         </div>
         <p>
           Contrary to popular belief, Lorem Ipsum is not simply random text. It

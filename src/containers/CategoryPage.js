@@ -6,20 +6,17 @@ import { FaSearch } from "react-icons/fa";
 
 const SEARCH_RECIPE = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
 
-const CategoryPage = (props) => {
+const CategoryPage = (s) => {
   const { cat } = useParams();
   const [recipeList, setRecipeList] = useState([]);
   const [recommended, setRecommended] = useState({});
-  
   const [search, setSearch] = useState("");
-  console.log(cat)
-  console.log(recommended)
+ 
 
   useEffect(() => {
     const recipies = async () => {
       const { data } = await axios.get(SEARCH_RECIPE + cat);
       setRecipeList(data.meals);
-      console.log(data.meals);
       setRecommended(data.meals[Math.floor(Math.random() * data.meals.length)]);
     };
     recipies();

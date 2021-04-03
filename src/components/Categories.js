@@ -8,7 +8,6 @@ const CATEGORIES = "https://www.themealdb.com/api/json/v1/1/categories.php";
 const Categories = () => {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
-  
 
   useEffect(() => {
     const recipeCategory = async () => {
@@ -20,26 +19,25 @@ const Categories = () => {
     recipeCategory();
   }, []);
 
+
+  //Loading spinner implemented in this page only
   let loadHndler = null;
 
-  loading ? 
-  loadHndler = <Loader /> 
-  :
-    loadHndler = category.map(
-      ({ idCategory, strCategoryThumb, strCategory }) => (
-        <Card
-          route="category"
-          key={idCategory}
-          img={strCategoryThumb}
-          name={strCategory}
-        />
-      )
-    );
-  
+  loading
+    ? (loadHndler = <Loader />)
+    : (loadHndler = category.map(
+        ({ idCategory, strCategoryThumb, strCategory }) => (
+          <Card
+            route="category"
+            key={idCategory}
+            img={strCategoryThumb}
+            name={strCategory}
+          />
+        )
+      ));
 
   return (
     <div className="container">
-    
       <div className="recipe-category">{loadHndler}</div>
     </div>
   );
