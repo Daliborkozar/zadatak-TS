@@ -68,15 +68,12 @@ a {
   position: relative;
   display: inline-block;
   
-  // &:hover {
-  //   .tooltip-form {
-  //     visibility: visible;
-  //   }
-  // }
+  
+    
   .tooltip-form {
     display: flex;
     flex-direction: column;
-    visibility: hidden;
+    // visibility: hidden;
     width: 300px;
     background-color: var(--light-gray);
     color: #fff;

@@ -21,13 +21,14 @@ const CategoryPage = (props) => {
       setRecommended(data.meals[Math.floor(Math.random() * data.meals.length)]);
     };
     recipies();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const recomMeal = () => {
     const { strMeal, strMealThumb, idMeal } = recommended;
     return <Card route="meal" name={strMeal} img={strMealThumb} id={idMeal} />;
   };
-  //No debouncing/trottling needed since it is local
+  //TODO Debouncing/throttling if time
   const filterHandler = () => {
     return recipeList
       .filter((item) => {

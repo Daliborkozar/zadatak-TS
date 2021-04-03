@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../components/UI/Card/Card";
-import { FaSearch } from "react-icons/fa";
-import Loader from "../components/UI/Loader/Loader";
 import { useParams } from "react-router";
 
 const RANDOM = "https://www.themealdb.com/api/json/v1/1/random.php";
@@ -14,7 +12,7 @@ const SearchPage = () => {
   const [searchList, setSearchList] = useState([]);
   const [category, setCategory] = useState([]);
   const { recpie } = useParams();
-  const [selection, setSelection] = useState();
+  const [selection, setSelection] = useState('Category');
 
   useEffect(() => {
     const random = async () => {
@@ -36,6 +34,7 @@ const SearchPage = () => {
     };
 
     cat();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const randomRec = () => {
@@ -53,6 +52,25 @@ const SearchPage = () => {
     setSelection(e.target.value);
   };
 
+  console.log(selection);
+  console.log(searchList);
+
+  const recpieCategoryFilter = () => {
+    return searchList
+      .filter((item) => {
+        return  item.strCategory === selection || selection ==='Category' 
+      })
+      .map((item) => (
+        <Card
+          key={item.idMeal}
+          route="meal"
+          name={item.strMeal}
+          img={item.strMealThumb}
+          id={item.idMeal}
+        />
+      ));
+  };
+
   return (
     <div>
       <div className="recommendation-container">
@@ -67,14 +85,14 @@ const SearchPage = () => {
         </div>
         <div className="form-wrapper">
           <select value={selection} onChange={onSelectionHandler}>
-            <option defaultValue="category">Category</option>
+            <option value="category">Category</option>
             {category.map((item) => (
               <option value={item.strCategory}>{item.strCategory}</option>
             ))}
           </select>
         </div>
       </div>
-      <div className="meal-list"></div>
+      <div className="meal-list">{recpieCategoryFilter()}</div>
     </div>
   );
 };

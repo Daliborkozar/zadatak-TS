@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const history = useHistory();
   const location = useLocation();
+  const [show,setShow] = useState(false)
   const [search, setSearch] = useState('')
 
   const submitHandler = (e) => {
@@ -35,13 +36,15 @@ const Navbar = () => {
         <div className='hamburger'>
           <FaBars />
         </div>
+       
         <div className='tooltip'>
-          <form className='tooltip-form' >
-            <input className='tooltip-input' type='text' />
-            <input className='tooltip-input' type='text'/>
+        {show ? (<form className='tooltip-form' >
+            <input className='tooltip-input' type='text' placeholder="Username"/>
+            <input className='tooltip-input' type='text' placeholder='Password'/>
             <button className='tooltip-button'>Login</button>
-          </form>
-        <FaRegUserCircle size={40} />
+          </form>) : null}
+          
+        <FaRegUserCircle size={40} onClick={() => setShow(prev => !prev)} />
         </div>
         <ul className="navbar-list">
           {location.pathname === "/" ? null : (
