@@ -39,9 +39,7 @@
 }
 
 .active {
-  @media only screen and (max-width: 800px) {
-    display: none;
-  }
+  
   .navbar-list {
     flex-direction: column;
     background-color: var(--light-gray);

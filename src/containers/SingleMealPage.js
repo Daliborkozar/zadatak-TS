@@ -1,31 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useHistory, useLocation, useParams } from "react-router";
 import axios from "axios";
 import Card from "../components/UI/Card/Card";
 
 const SINGLE_MEAL = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=";
-const SAME_CAT_MEALS = "https://www.themealdb.com/api/json/v1/1/filter.php?i=";
+const SAME_CAT_MEALS = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
 
-const SingleMealPage = () => {
-  const { id } = useParams();
-  const [meal, setMeal] = useState({});
+const SingleMealPage = (props) => {
+  const params = useParams();
+  const [meal, setMeal] = useState({'strCategory' : 'Dessert'});
   const [similarList, setSimilarList] = useState([]);
+  const location = useLocation()
+  const history = useHistory()
+
+  console.log(location)
+  console.log(history)
+
+  console.log(params);
+  console.log(meal.strCategory);
 
   useEffect(() => {
+    const single = async () => {
+      const { data } = await axios.get(SINGLE_MEAL + params.id);
+      console.log(data.meals[0]);
+      setMeal(data.meals[0]);
+    };
+    single();
+
     const meals = async () => {
       const { data } = await axios.get(SAME_CAT_MEALS + `${meal.strCategory}`);
       setSimilarList(data.meals);
+      
     };
     meals();
+    
+  }, [meal.strCategory, params.id]);
 
-    const single = async () => {
-      const { data } = await axios.get(SINGLE_MEAL + id);
-      setMeal(data.meals[0]);
-    };
 
-    single();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   // prvo resenje
   // let ingredients = [];
@@ -54,12 +65,19 @@ const SingleMealPage = () => {
   };
 
   const similar = () => {
-    return similarList
-      .sort(() => Math.random() - Math.random())
-      .slice(0, 3)
-      .map(({ strMeal, strMealThumb, idMeal }) => (
-        <Card route="meal" name={strMeal} img={strMealThumb} id={idMeal} />
-      ));
+    
+      return similarList
+        .sort(() => Math.random() - Math.random())
+        .slice(0, 3)
+        .map(({ strMeal, strMealThumb, idMeal }) => (
+          <Card
+            key={idMeal}
+            route="meal"
+            name={strMeal}
+            img={strMealThumb}
+            id={idMeal}
+          />
+        ));
   };
 
   return (
@@ -95,9 +113,7 @@ const SingleMealPage = () => {
         </div>
         <div className="similar-meals">
           <h2>Similar meals</h2>
-          <div className="similar-meal__list">
-            {similarList === !null ? similar() : "API NOT WORKING ERROR"}
-          </div>
+          <div className="similar-meal__list">{similar()}</div>
         </div>
       </div>
     </div>
