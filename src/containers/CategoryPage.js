@@ -36,6 +36,7 @@ const CategoryPage = (props) => {
       })
       .map((item) => (
         <Card
+          key={item.idMeal}
           route="meal"
           name={item.strMeal}
           img={item.strMealThumb}

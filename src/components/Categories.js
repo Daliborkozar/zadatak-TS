@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Header from "./Header";
 import Loader from "./UI/Loader/Loader";
 import Card from "../components/UI/Card/Card";
 
@@ -40,7 +39,7 @@ const Categories = () => {
 
   return (
     <div className="container">
-      <Header />
+    
       <div className="recipe-category">{loadHndler}</div>
     </div>
   );

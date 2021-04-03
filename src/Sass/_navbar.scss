@@ -67,9 +67,7 @@ a {
 .tooltip {
   position: relative;
   display: inline-block;
-  
-  
-    
+
   .tooltip-form {
     display: flex;
     flex-direction: column;
@@ -81,11 +79,25 @@ a {
     border-radius: 6px;
     padding: 1rem 1rem;
 
+    box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.52);
+
     /* Position the tooltip */
     top: 50px;
-    left: -125px;
+    left: -130px;
     position: absolute;
     z-index: 1;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      bottom: 100%; /* At the top of the tooltip */
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent var(--light-gray) transparent;
+      
+    }
 
     .tooltip-input {
       padding: 0.4rem;

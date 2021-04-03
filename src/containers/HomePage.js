@@ -1,13 +1,14 @@
 import React from "react";
 import Aboutus from "../components/Aboutus";
 import Contact from "../components/Contact";
-import Categories from "../components/Categories";
+
+import Header from '../components/Header'
 
 
 const HomePage = () => {
   return (
     <div>
-      <Categories />
+      <Header />
       <Aboutus />
       <Contact />
     </div>

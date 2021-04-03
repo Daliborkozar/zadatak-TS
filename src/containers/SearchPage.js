@@ -12,7 +12,7 @@ const SearchPage = () => {
   const [searchList, setSearchList] = useState([]);
   const [category, setCategory] = useState([]);
   const { recpie } = useParams();
-  const [selection, setSelection] = useState('Category');
+  const [selection, setSelection] = useState("Category");
 
   useEffect(() => {
     const random = async () => {
@@ -40,6 +40,7 @@ const SearchPage = () => {
   const randomRec = () => {
     return (
       <Card
+        key={random.idMeal}
         route={"meal"}
         name={random.strMeal}
         img={random.strMealThumb}
@@ -52,13 +53,10 @@ const SearchPage = () => {
     setSelection(e.target.value);
   };
 
-  console.log(selection);
-  console.log(searchList);
-
   const recpieCategoryFilter = () => {
     return searchList
       .filter((item) => {
-        return  item.strCategory === selection || selection ==='Category' 
+        return item.strCategory === selection || selection === "Category";
       })
       .map((item) => (
         <Card
@@ -86,8 +84,10 @@ const SearchPage = () => {
         <div className="form-wrapper">
           <select value={selection} onChange={onSelectionHandler}>
             <option value="category">Category</option>
-            {category.map((item) => (
-              <option value={item.strCategory}>{item.strCategory}</option>
+            {category.map((item,i) => (
+              <option key={i} value={item.strCategory}>
+                {item.strCategory}
+              </option>
             ))}
           </select>
         </div>
