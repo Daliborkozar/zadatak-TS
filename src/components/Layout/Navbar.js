@@ -48,7 +48,6 @@ const Navbar = () => {
       setPassword('')
       setUserName('')
     }
-   
   };
 
   const submitHandler = (e) => {
