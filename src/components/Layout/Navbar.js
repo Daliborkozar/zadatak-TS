@@ -9,6 +9,37 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const [search, setSearch] = useState("");
   const [menuShow, setMenuShow] = useState(false)
+  const [userName, setUserName] = useState('')
+  const [password, setPassword] = useState('')
+  const [status,setStatus]= useState(false)
+
+  console.log(status)
+
+  const users = [
+    { id:'1',
+      username: 'dalibor',
+      password: '123456'
+    },
+    { id:'2',
+      username: 'milan',
+      password: '123456'
+    },
+  ]
+
+  const userCheck = () => {
+    return users.filter(item => userName === users.username || password === users.password)
+  }
+
+  const onLoggingHandler = (e) => {
+    e.preventDefault()
+   if(userCheck){
+     setStatus(true)
+     setShow(false)
+     setUserName('')
+     setPassword('')
+   }
+
+  }
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -39,16 +70,22 @@ const Navbar = () => {
       <div className="navbar__right">
         <div className="tooltip">
           {show ? (
-            <form className="tooltip-form">
+            <form className="tooltip-form" onSubmit={onLoggingHandler}>
               <input
                 className="tooltip-input"
                 type="text"
                 placeholder="Username"
+                value={userName}  
+                onChange={(e) => setUserName(e.target.value)}
+                required
               />
               <input
                 className="tooltip-input"
                 type="text"
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
               />
               <button className="tooltip-button">Login</button>
             </form>
@@ -59,13 +96,18 @@ const Navbar = () => {
         <div className="hamburger" onClick={()=> setMenuShow(prev => !prev)}>
           {menuShow ? <FaTimes size={30}/> : <FaBars size={30} />}
         </div>
-        <div className={`navbar-wrapper ${menuShow ? 'active' : null }`}>
-          <ul className="navbar-list" onClick={()=> setMenuShow(prev => !prev)}>
+        <div className={`navbar-wrapper ${menuShow ? 'active' : null }`} onClick={()=> setMenuShow(prev => !prev)} >
+          <ul className="navbar-list" >
             {location.pathname === "/" ? null : (
               <Link to="/">
                 <li className="navbar-list__item">Home</li>
               </Link>
             )}
+            {status ?  (
+              <Link to={`/mymeal/`}>
+                <li className="navbar-list__item">My meals</li>
+              </Link>
+            ) : null}
             <Link to="/">
               <li className="navbar-list__item">About us</li>
             </Link>

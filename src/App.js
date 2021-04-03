@@ -15,6 +15,9 @@ const App = () => {
             <Route path="/meal/:id">
               <SingleMealPage />
             </Route>
+            <Route path="/mymeals/:username">
+              <SingleMealPage />
+            </Route>
             <Route path="/category/:cat">
               <CategoryPage />
             </Route>
