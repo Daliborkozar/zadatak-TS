@@ -13,27 +13,42 @@ const Navbar = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState(false);
+  
 
+  console.log(userName);
+  console.log(password);
+  console.log(status)
 
   const users = [
     { id: "1", username: "dalibor", password: "123456" },
     { id: "2", username: "milan", password: "123456" },
   ];
 
-  const userCheck = () => {
-    return users.filter(
-      (item) => userName === users.username || password === users.password
-    );
+  const checkedUser = () => {
+    const filtered = users.find(user => userName === user.username && password === user.password)
+    return typeof filtered === "object" ? true : false
+    
+  } 
+
+
+  const userHandler = (e) => {
+    setUserName(e.target.value);
   };
 
+  const passwordHandler = (e) => {
+    setPassword(e.target.value);
+  };
+
+  
   const onLoggingHandler = (e) => {
     e.preventDefault();
-    if (userCheck) {
-      setStatus(true);
-      setShow(false);
-      setUserName("");
-      setPassword("");
+    if(checkedUser()){
+      setStatus(true)
+      setShow(false)
+      setPassword('')
+      setUserName('')
     }
+   
   };
 
   const submitHandler = (e) => {
@@ -70,26 +85,29 @@ const Navbar = () => {
                 type="text"
                 placeholder="Username"
                 value={userName}
-                onChange={(e) => setUserName(e.target.value)}
+                onChange={userHandler}
                 required
               />
               <input
                 className="tooltip-input"
-                type="text"
+                type="password"
                 placeholder="Password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={passwordHandler}
                 required
               />
-              <button className="tooltip-button">Login</button>
+              <button className="tooltip-button" type='submit'>Login</button>
             </form>
           ) : null}
 
           <FaRegUserCircle size={40} onClick={() => setShow((prev) => !prev)} />
         </div>
-        <div className="hamburger" onClick={() => setMenuShow((prev) => !prev)}>
+        <span
+          className="hamburger"
+          onClick={() => setMenuShow((prev) => !prev)}
+        >
           {menuShow ? <FaTimes size={30} /> : <FaBars size={30} />}
-        </div>
+        </span>
         <div className={`navbar-wrapper ${menuShow ? "active" : null}`}>
           <ul className="navbar-list">
             {location.pathname === "/" ? null : (
@@ -102,9 +120,11 @@ const Navbar = () => {
                 <li className="navbar-list__item">My meals</li>
               </Link>
             ) : null}
+
             <Link to="/">
               <li className="navbar-list__item">About us</li>
             </Link>
+
             <Link to="/">
               <li className="navbar-list__item">Contact</li>
             </Link>
