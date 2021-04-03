@@ -5,6 +5,7 @@ import HomePage from "./containers/HomePage";
 import CategoryPage from "./containers/CategoryPage";
 import SingleMealPage from "./containers/SingleMealPage";
 import SearchPage from "./containers/SearchPage";
+import MyMeals from './containers/MyMeals'
 
 const App = () => {
   return (
@@ -15,8 +16,8 @@ const App = () => {
             <Route path="/meal/:id">
               <SingleMealPage />
             </Route>
-            <Route path="/mymeals/:username">
-              <SingleMealPage />
+            <Route path="/mymeal/">
+              <MyMeals />
             </Route>
             <Route path="/category/:cat">
               <CategoryPage />

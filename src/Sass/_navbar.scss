@@ -44,23 +44,19 @@
     background-color: var(--light-gray);
     line-height: 3;
     padding: 2rem;
-    
-    
+
     &__item {
       font-size: 3rem;
     }
-
-    
   }
-  
+
   position: absolute;
   display: flex;
   flex-direction: column;
-  top:70px;
+  top: 70px;
   right: 20px;
   z-index: 100;
   box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.52);
-  
 }
 
 .navbar-list {
@@ -71,7 +67,6 @@
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
-   
   }
 }
 
@@ -98,8 +93,7 @@ a {
 .hamburger {
   display: none;
   @media only screen and (max-width: 800px) {
-    display: block
-    
+    display: block;
   }
 }
 
@@ -110,7 +104,6 @@ a {
   .tooltip-form {
     display: flex;
     flex-direction: column;
-    // visibility: hidden;
     width: 300px;
     background-color: var(--light-gray);
     color: #fff;
