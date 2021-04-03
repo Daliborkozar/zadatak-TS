@@ -13,11 +13,6 @@ const Navbar = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState(false);
-  
-
-  console.log(userName);
-  console.log(password);
-  console.log(status)
 
   const users = [
     { id: "1", username: "dalibor", password: "123456" },
@@ -25,11 +20,11 @@ const Navbar = () => {
   ];
 
   const checkedUser = () => {
-    const filtered = users.find(user => userName === user.username && password === user.password)
-    return typeof filtered === "object" ? true : false
-    
-  } 
-
+    const filtered = users.find(
+      (user) => userName === user.username && password === user.password
+    );
+    return typeof filtered === "object" ? true : false;
+  };
 
   const userHandler = (e) => {
     setUserName(e.target.value);
@@ -39,14 +34,13 @@ const Navbar = () => {
     setPassword(e.target.value);
   };
 
-  
   const onLoggingHandler = (e) => {
     e.preventDefault();
-    if(checkedUser()){
-      setStatus(true)
-      setShow(false)
-      setPassword('')
-      setUserName('')
+    if (checkedUser()) {
+      setStatus(true);
+      setShow(false);
+      setPassword("");
+      setUserName("");
     }
   };
 
@@ -95,7 +89,9 @@ const Navbar = () => {
                 onChange={passwordHandler}
                 required
               />
-              <button className="tooltip-button" type='submit'>Login</button>
+              <button className="tooltip-button" type="submit">
+                Login
+              </button>
             </form>
           ) : null}
 

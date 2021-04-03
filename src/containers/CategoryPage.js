@@ -4,14 +4,16 @@ import Card from "../components/UI/Card/Card";
 import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 
-const SEARCH_RECIPE = "https://www.themealdb.com/api/json/v1/1/filter.php?i=";
+const SEARCH_RECIPE = "https://www.themealdb.com/api/json/v1/1/filter.php?c=";
 
 const CategoryPage = (props) => {
   const { cat } = useParams();
   const [recipeList, setRecipeList] = useState([]);
   const [recommended, setRecommended] = useState({});
-
+  
   const [search, setSearch] = useState("");
+  console.log(cat)
+  console.log(recommended)
 
   useEffect(() => {
     const recipies = async () => {
