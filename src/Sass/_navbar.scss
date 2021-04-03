@@ -1,6 +1,5 @@
 .navbar {
   display: flex;
-
   margin: 0 auto;
   justify-content: space-between;
   height: 5rem;
@@ -11,6 +10,9 @@
     max-width: 420px;
     width: 100%;
     form {
+      @media only screen and (max-width: 700px) {
+        margin-right: 2rem;
+      }
       input {
         padding: 0.4rem;
         border-radius: 5px;
@@ -22,7 +24,43 @@
   &__right {
     display: flex;
     align-items: center;
+    @media only screen and (max-width: 800px) {
+      width: 100%;
+      justify-content: space-between;
+    }
   }
+}
+
+.navbar-wrapper {
+  position: relative;
+  @media only screen and (max-width: 800px) {
+    display: none;
+  }
+}
+
+.active {
+  .navbar-list {
+    flex-direction: column;
+    background-color: var(--light-gray);
+    line-height: 3;
+    padding: 2rem;
+    
+    
+    &__item {
+      font-size: 3rem;
+    }
+
+    
+  }
+  
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top:70px;
+  right: 20px;
+  z-index: 100;
+  box-shadow: 2px 2px 15px 0px rgba(0, 0, 0, 0.52);
+  
 }
 
 .navbar-list {
@@ -33,6 +71,7 @@
     font-family: "Roboto", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
+   
   }
 }
 
@@ -51,7 +90,6 @@ a {
 
   &__icon {
     position: absolute;
-
     top: 10px;
     left: 227px;
   }
@@ -60,7 +98,8 @@ a {
 .hamburger {
   display: none;
   @media only screen and (max-width: 800px) {
-    display: none;
+    display: block
+    
   }
 }
 
@@ -96,7 +135,6 @@ a {
       border-width: 5px;
       border-style: solid;
       border-color: transparent transparent var(--light-gray) transparent;
-      
     }
 
     .tooltip-input {
