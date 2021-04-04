@@ -106,7 +106,7 @@ const Navbar = () => {
         <div className={`navbar-wrapper ${menuShow ? "active" : null}`}>
           <ul
             className="navbar-list"
-            onClick={() => setMenuShow((prev) => !prev)}
+            
           >
             {location.pathname === "/" ? null : (
               <Link to="/">

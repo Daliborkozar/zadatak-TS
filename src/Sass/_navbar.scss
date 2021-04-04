@@ -73,6 +73,8 @@
 a {
   &:hover {
     cursor: pointer;
+    opacity: 0.75;
+    color: red;
   }
 
   &:visited {
