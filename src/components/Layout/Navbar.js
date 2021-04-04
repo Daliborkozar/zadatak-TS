@@ -15,8 +15,8 @@ const Navbar = () => {
   const [status, setStatus] = useState(false);
 
   const users = [
-    { id: "1", username: "dalibor", password: "123456" },
-    { id: "2", username: "milan", password: "123456" },
+    { id: "1", username: "user1", password: "123456" },
+    { id: "2", username: "user2", password: "654321" },
   ];
 
   const checkedUser = () => {
