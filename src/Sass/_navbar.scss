@@ -44,6 +44,7 @@
     background-color: var(--light-gray);
     line-height: 3;
     padding: 2rem;
+    list-style-type: none;
 
     &__item {
       font-size: 3rem;
@@ -68,17 +69,13 @@
     font-size: 1.2rem;
     font-weight: 700;
   }
-}
 
-a {
-  &:hover {
-    cursor: pointer;
-    opacity: 0.75;
-    color: red;
-  }
-
-  &:visited {
+  a {
     text-decoration: none;
+    color: black;
+    &:hover {
+      color: var(--light);
+    }
   }
 }
 
@@ -87,8 +84,10 @@ a {
 
   &__icon {
     position: absolute;
-    top: 10px;
     left: 227px;
+    top: 10px;
+    
+   
   }
 }
 

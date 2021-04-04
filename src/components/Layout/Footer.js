@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__container">
         <img className="footer__image" src={logo} alt="footerimage" />
-        <div>
+        <div className='footer__links'>
           <a href="http://www.facebook.com" rel="noreferrer" target="_blank">
             <FaFacebookF size={25} />
           </a>
@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
       <p className="footer-text">
         Challenge by <a href="https://www.thinksmart.rs/">Think Smart</a> Coded
-        by Dalibor Kozar {year}{" "}
+        by Dalibor Kozar {year}
       </p>
     </div>
   );
