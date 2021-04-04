@@ -13,6 +13,8 @@ const SearchPage = () => {
   const [category, setCategory] = useState([]);
   const { recpie } = useParams();
   const [selection, setSelection] = useState("Category");
+  console.log(recpie)
+  console.log(searchList)
 
   useEffect(() => {
     const random = async () => {
@@ -34,8 +36,8 @@ const SearchPage = () => {
     };
 
     cat();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    
+  }, [recpie]);
 
   const randomRec = () => {
     return (
@@ -92,7 +94,7 @@ const SearchPage = () => {
           </select>
         </div>
       </div>
-      <div className="meal-list">{recpieCategoryFilter()}</div>
+      <div className="meal-list">{!!searchList ? recpieCategoryFilter() : " RECIPIE NOT FOUND"}</div>
     </div>
   );
 };
