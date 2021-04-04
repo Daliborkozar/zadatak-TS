@@ -10,7 +10,7 @@ const SingleMealPage = (props) => {
   const params = useParams();
   const [meal, setMeal] = useState({ strCategory: "Dessert" });
   const [similarList, setSimilarList] = useState([]);
-
+ 
   useEffect(() => {
     const single = async () => {
       const { data } = await axios.get(SINGLE_MEAL + params.id);

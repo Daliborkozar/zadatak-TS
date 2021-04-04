@@ -94,7 +94,7 @@ const SearchPage = () => {
           </select>
         </div>
       </div>
-      <div className="meal-list">{!!searchList ? recpieCategoryFilter() : " RECIPIE NOT FOUND"}</div>
+      <div className="meal-list">{searchList ? recpieCategoryFilter() : " RECIPIE NOT FOUND"}</div>
     </div>
   );
 };
