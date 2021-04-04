@@ -3,6 +3,7 @@ import { FaRegUserCircle, FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
+
 const Navbar = () => {
   const history = useHistory();
   const location = useLocation();
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false)
 
   const users = [
     { id: "1", username: "dalibor", password: "123456" },
@@ -41,7 +43,8 @@ const Navbar = () => {
       setShow(false);
       setPassword("");
       setUserName("");
-    }
+      setErrorMessage(false)
+    } else setErrorMessage(true)
   };
 
   const submitHandler = (e) => {
@@ -89,6 +92,7 @@ const Navbar = () => {
                 onChange={passwordHandler}
                 required
               />
+              {errorMessage ? <p style={{color: 'red'}}>Invalid Username or Password</p> : null}
               <button className="tooltip-button" type="submit">
                 Login
               </button>

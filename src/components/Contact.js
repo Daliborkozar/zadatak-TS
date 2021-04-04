@@ -88,7 +88,7 @@ const Contact = () => {
           </button>
         </div>
         <div>
-          <p>{successMsg ? "Thanks for being awesome! " : null}</p>
+          <p style={{padding: '1rem', color: '#ffa500'}}>{successMsg ? "Thanks for being awesome! " : null}</p>
         </div>
       </form>
     </div>
