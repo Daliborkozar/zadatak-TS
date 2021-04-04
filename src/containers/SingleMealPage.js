@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useLocation, useParams } from "react-router";
+import { useParams } from "react-router";
 import axios from "axios";
 import Card from "../components/UI/Card/Card";
 
