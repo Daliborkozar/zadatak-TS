@@ -54,7 +54,7 @@ const SingleMealPage = (props) => {
 
   const similar = () => {
     return similarList
-      .sort(() => Math.random() - Math.random())
+      .sort(() => Math.random() - .5)
       .slice(0, 3)
       .map(({ strMeal, strMealThumb, idMeal }) => (
         <Card
