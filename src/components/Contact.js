@@ -29,13 +29,13 @@ const Contact = () => {
     setMessage("");
   };
 
-  useEffect(() => {
-    const data = localStorage.getItem("data");
+  // useEffect(() => {
+  //   const data = localStorage.getItem("data");
 
-    if (data) {
-      setUserMessage(JSON.parse(data));
-    }
-  }, []);
+  //   if (data) {
+  //     setUserMessage(JSON.parse(data));
+  //   }
+  // }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -44,6 +44,8 @@ const Contact = () => {
 
     localStorage.setItem("data", JSON.stringify(userMessage));
   }, [userMessage]);
+
+  console.log(userMessage)
 
   return (
     <div className="contact">
